@@ -1,8 +1,9 @@
 ---
 - name: Ensure nginx is installed.
   openbsd_pkg:
-    name: "{{ nginx_package_name }}"
+    name: "{{ item }}"
     state: present
+  with_items: "{{ nginx_package_name }}"
 
 - name: Create logs directory.
   file:

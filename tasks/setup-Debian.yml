@@ -5,6 +5,7 @@
 
 - name: Ensure nginx is installed.
   apt:
-    name: "{{ nginx_package_name }}"
+    name: "{{ item }}"
     state: present
     default_release: "{{ nginx_default_release }}"
+  with_items: "{{ nginx_package_name }}"
